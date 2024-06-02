@@ -1,0 +1,52 @@
+import re
+
+#Open the pasting file
+with open('input_folder/paste_file.txt', 'r', encoding='utf-8') as file:
+    untreated_lines = file.readlines()
+
+#Split the line into a list of words
+def string_to_list(string):
+    return re.split(r'[ {}\n\t]+', string)
+
+#Remove any lone bracket
+def remove_empty_list_item(list):
+    cleaned_list = []
+    for i in list : 
+        if i != "":
+            cleaned_list.append(i)
+    return cleaned_list
+
+#Remove any string with \ 
+def remove_backslash(list):
+    cleaned_list = []
+    for i in list : 
+        if i[0] != "\\":
+            cleaned_list.append(i)
+    return cleaned_list
+
+#Rebuild string
+def rebuild_string(list):
+    build_string = ""
+    for item in list : 
+        build_string += item + " "
+    return build_string
+
+# Apply all the computation to the 
+def compute_line(line):
+    list = string_to_list(line)
+    if list[0][0] == '%': 
+        return None
+    treated_list = remove_empty_list_item(list)
+    treated_list = remove_backslash(treated_list)
+    return rebuild_string(treated_list)
+
+def remove_keywords(list, keywords):
+    pass
+
+
+keywords = ['frame', 'itemize']
+line = untreated_lines[0]
+print(line)
+print(compute_line(line))
+
+
