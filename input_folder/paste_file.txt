@@ -1,0 +1,19 @@
+% Diapositive conclusion
+\begin{frame}
+    \frametitle{Conclusion}
+    \ul{Grâce à ce projet, nous avons pu créer un pipeline de NGS complet :}
+    \begin{itemize}
+        \item \textbf{Le pipeline : }
+        \begin{itemize}
+            \item Rapide et facile d'utilisation
+            \item Outils récents et de pointe
+        \end{itemize}
+        \item \textbf{Travail en groupe :} De grande envergure.  
+        \item \textbf{Contributions à la compréhension des interactions des Fusarium.}
+        \begin{itemize}
+            \item Faire tourner le programme sur toutes les données dans un cluster de calcul
+            \item Cibler les gènes concernés
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+% OK 
