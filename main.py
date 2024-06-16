@@ -34,12 +34,13 @@ def rebuild_string(list):
 # Apply all the computation to the 
 def compute_line(line, keywords):
     list = string_to_list(line)
-    if list[0][0] == '%': 
-        return None
-    treated_list = remove_keywords(list, keywords)
+    if list[0] == '%': 
+        return 
     treated_list = remove_empty_list_item(list)
     treated_list = remove_backslash(treated_list)
+    treated_list = remove_keywords(treated_list, keywords)
     return rebuild_string(treated_list)
+    
 
 def remove_keywords(list, keywords):
     for word in keywords :
@@ -54,10 +55,13 @@ def remove_a_word(word_to_remove, list):
             cleaned_list.append(item)
     return cleaned_list
 
+def compute_text(text, keywords):
+    for line in text : 
+        print(compute_line(line, keywords))
+
 
 keywords = ['frame', 'itemize']
-line = untreated_lines[1]
-print(line)
-print(compute_line(line, keywords))
+compute_text(untreated_lines, keywords)
+
 
 
